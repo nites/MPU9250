@@ -1099,3 +1099,13 @@ int MPU9250::whoAmIAK8963(){
   // return the register value
   return _buffer[0];
 }
+
+/* gets the MPU9250 Interrupt Status */
+int MPU9250::getInterruptStatus(){
+  // read the WHO AM I register
+  if (readRegisters(INT_STATUS,1,_buffer) < 0) {
+    return -1;
+  }
+  // return the register value
+  return _buffer[0];
+}
